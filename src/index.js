@@ -1,5 +1,5 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const express = require("express");
+const dotenv = require("dotenv");
 
 const app = express();
 
@@ -8,15 +8,16 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 
-
-app.get('/api', (req, res) => {
-    res.send('aa World!');
+app.get("/api", (req, res) => {
+  res.send("aa World!");
 });
 
-const productController = require('./product/product.controller');
+const productController = require("./product/product.controller");
+const userController = require("./user/user.controller");
 
-app.use('/products', productController);
+app.use("/products", productController);
+app.use("/users", userController);
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
